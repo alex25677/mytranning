@@ -1,0 +1,26 @@
+name: Python Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Шаг 1: Берём код из репозитория
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Шаг 2: Устанавливаем Python 3.9
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # Шаг 3: Устанавливаем зависимости
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Шаг 4: Запускаем тесты
+      - name: Run tests
+        run: pytest test_app.py -v
