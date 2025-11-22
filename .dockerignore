@@ -1,0 +1,7 @@
+**/node_modules
+*.txt
+*.git
+README.md
+README.txt
+readme
+docker-compose.yml
